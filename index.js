@@ -1,25 +1,14 @@
 const express = require('express')
 const app = express()
+const user = require('./routers/user')
+const student = require('./routers/student')
 
-
-app.get('/api/users', (req, res) => {
-    res.status(200).send("Golang")
-})
-
-app.post('/api/users', (req, res) => {
-    res.send("Nodejs")
-})
-
-app.get('/api/students', (req,res) => {
-    res.send("C++")
-})
-
-app.post('/api/students', (req,res) => {
-    res.send("C")
-})
+app.use('/api/users',user)
+app.use('/api/students', student)
 
 console.log(process.env.PORT)
 
 const port = process.env.PORT || 3000
 
-app.listen(port,()=>console.log(`App is running on port ${port}`))
+app.listen(port, () => console.log(`App is running on port ${port}`))
+
