@@ -6,10 +6,14 @@ const student = require('./routers/student')
 const teacher = require('./routers/teacher')
 
 app.use(express.json())
-app.use(morgan('dev'))
+if (app.get('env') === "development"){
+    app.use(morgan('dev'))
+}
 app.use('/api/users',username,password,user)
 app.use('/api/students', addIdToReq, addUsernameToReq, student)
-app.use('/api/teachers',teacher)
+app.use('/api/teachers', teacher)
+
+console.log(app.get('env'))
 
 function username(req, res, next) {
     console.log("Username is correct - Username middleware worked correctly")
