@@ -4,7 +4,7 @@ const user = require('./routers/user')
 const student = require('./routers/student')
 
 app.use('/api/users',username,password,user)
-app.use('/api/students',addIdToReq, student)
+app.use('/api/students',addIdToReq,addUsernameToReq,student)
 
 function username(req, res, next) {
     console.log("Username is correct - Username middleware worked correctly")
@@ -21,6 +21,10 @@ function addIdToReq(req,res,next) {
     next()
 }
 
+function addUsernameToReq(req, res, next) {
+    req.username = "Manula"
+    next()
+}
 console.log(process.env.PORT)
 
 const port = process.env.PORT || 3000

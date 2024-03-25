@@ -8,7 +8,7 @@ router.get('/get', (req, res) => {
 
 
 router.post('/post', (req, res) => {
-    res.send("C++")
+    res.send(req.username)
 })
 
 
