@@ -6,7 +6,7 @@ router.route('/')
     res.send("Learn")
 })
 .post((req, res) => {
-    res.send("Keep it up")
+    res.send(req.body)
 })
 
 module.exports = router

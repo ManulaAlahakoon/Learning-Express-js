@@ -4,6 +4,7 @@ const user = require('./routers/user')
 const student = require('./routers/student')
 const teacher = require('./routers/teacher')
 
+app.use(express.json())
 app.use('/api/users',username,password,user)
 app.use('/api/students', addIdToReq, addUsernameToReq, student)
 app.use('/api/teachers',teacher)
